@@ -20,7 +20,7 @@ class MainMenuScene: SKScene {
         buttonPlay = self.childNode(withName: "buttonPlay") as! MSButtonNode
         
         /* Setup button selection handler */
-        buttonPlay.selectedHandler = {
+        buttonPlay.selectedHandler = { [unowned self] in
             
             if let view = self.view {
                 

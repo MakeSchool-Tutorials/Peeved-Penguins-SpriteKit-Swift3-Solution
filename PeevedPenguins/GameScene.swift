@@ -52,8 +52,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         buttonRestart = childNode(withName: "//buttonRestart") as! MSButtonNode
         
         /* Setup button selection handler */
-        buttonRestart.selectedHandler = {
-            
+        buttonRestart.selectedHandler = { [unowned self] in
             if let view = self.view {
                 
                 // Load the SKScene from 'GameScene.sks'
@@ -131,8 +130,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 physicsWorld.add(touchJoint!)
                 
                 /* Add a new penguin to the scene */
-                let resourcePath = Bundle.main.path(forResource: "Penguin", ofType: "sks")
-                let penguin = MSReferenceNode (url: URL (fileURLWithPath: resourcePath!))
+                let penguin = MSReferenceNode(fileNamed: "Penguin")
                 addChild(penguin)
                 
                 /* Position penguin in the catapult bucket area */
